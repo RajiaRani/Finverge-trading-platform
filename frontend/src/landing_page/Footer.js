@@ -1,10 +1,10 @@
 import React from 'react';
-function Hero() {
+function Footer() {
     return (
         <>
-            <h1>Hero</h1>
+            <h1>Footer</h1>
         </>
     );
 }
 
-export default Hero;
+export default Footer;

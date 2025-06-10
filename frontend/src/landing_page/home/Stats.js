@@ -1,10 +1,10 @@
 import React from 'react';
-function Hero() {
+function Stats() {
     return (
         <>
-            <h1>Hero</h1>
+            <h1>Stats</h1>
         </>
     );
 }
 
-export default Hero;
+export default Stats;
