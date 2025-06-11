@@ -2,10 +2,10 @@ import React from 'react';
 function Stats() {
     return (
         <>
-         <div className='container'>
+         <div className='container p-5 mt-5 mb-5'>
           <div className='row'>
            <div className='col-6'>
-             <h1>Trust with confidence</h1>
+             <h2>Trust with confidence</h2>
 
              <h3>Customer-first always</h3>
              <p>
