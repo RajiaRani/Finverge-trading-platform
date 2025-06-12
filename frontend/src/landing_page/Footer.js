@@ -3,7 +3,7 @@ function Footer() {
   return (
     <>
       <div className="footer"
-        style={{ backgroundColor: "whitesmoke", borderTop: "0.5px solid grey"}}
+        style={{ backgroundColor: "whitesmoke", borderTop: "0.5px solid grey",}}
       >
         <div className="container p-5 ">
           <div className="row mb-5">

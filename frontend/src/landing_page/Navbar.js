@@ -2,7 +2,7 @@ import React from 'react';
 function Navbar() {
     return (
         <>
-            <div className=''>
+            <div className='' >
 
                 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom p-3" style={{backgroundColor:"#fff"}}>
                     <div class="container">
