@@ -2,7 +2,7 @@ import React from "react";
 function Footer() {
   return (
     <>
-      <div style={{ backgroundColor: "whitesmoke" }}>
+      <div style={{ backgroundColor: "whitesmoke", borderTop:"0.5px solid grey" }}>
         <div className="container p-5">
           <div className="row">
             <div className="col-3">
@@ -33,62 +33,70 @@ function Footer() {
               <hr />
             </div>
 
-            <div className="col-2 text-muted" style={{ fontSize: "14px" }}>
-              <h2 className="ms-4 fs-4">Account</h2>
-              <ul style={{ listStyle: "none" }}>
-                <li>Open demat account</li>
-                <li>Minor demat account</li>
-                <li> NRI demat account</li>
-                <li>Commodity </li>
-                <li>Dematerialisation </li>
-                <li> Fund transfer</li>
-                <li>MTF </li>
-                <li>Referral program </li>
-              </ul>
-            </div>
-            <div className="col-2 text-muted" style={{ fontSize: "14px" }}>
-              <h2 className="ms-4 fs-4">Support</h2>
-              <ul style={{ listStyle: "none" }}>
-                <li>Contact us</li>
-                <li>Support portal</li>
-                <li>How to file a complaint? </li>
-                <li>Status of your complaints </li>
-                <li>Bulletin </li>
-                <li>Circular </li>
-                <li>Z-Connect blog </li>
-                <li>Downloads </li>
-              </ul>
-            </div>
-            <div className="col-2 text-muted" style={{ fontSize: "14px" }}>
-              <h2 className="ms-4 fs-4">Company</h2>
-              <ul style={{ listStyle: "none" }}>
-                <li>About</li>
-                <li>Philosophy</li>
-                <li>Press & media </li>
-                <li>Careers </li>
-                <li>Zerodha Cares (CSR) </li>
-                <li>Zerodha.tech </li>
-                <li>Open source </li>
-                <li> </li>
-              </ul>
-            </div>
-            <div className="col-2 text-muted" style={{ fontSize: "14px" }}>
-              <h2 className="ms-4 fs-4">Quick links</h2>
-              <ul style={{ listStyle: "none" }}>
-                <li>Upcoming IPOs</li>
-                <li>Brokerage charges</li>
-                <li>Market holidays </li>
-                <li>Economic calendar </li>
-                <li>Calculators </li>
-                <li>Markets </li>
-                <li>Sectors </li>
-                <li> </li>
-              </ul>
+            <div
+              className="col-9  d-flex text-muted"
+              style={{ fontSize: "14px" }}
+            >
+              <div>
+                <h2 className="ms-4 fs-4">Account</h2>
+                <ul style={{ listStyle: "none" }}>
+                  <li>Open demat account</li>
+                  <li>Minor demat account</li>
+                  <li> NRI demat account</li>
+                  <li>Commodity </li>
+                  <li>Dematerialisation </li>
+                  <li> Fund transfer</li>
+                  <li>MTF </li>
+                  <li>Referral program </li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="ms-4 fs-4">Support</h2>
+                <ul style={{ listStyle: "none" }}>
+                  <li>Contact us</li>
+                  <li>Support portal</li>
+                  <li>How to file a complaint? </li>
+                  <li>Status of your complaints </li>
+                  <li>Bulletin </li>
+                  <li>Circular </li>
+                  <li>Z-Connect blog </li>
+                  <li>Downloads </li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="ms-4 fs-4">Company</h2>
+                <ul style={{ listStyle: "none" }}>
+                  <li>About</li>
+                  <li>Philosophy</li>
+                  <li>Press & media </li>
+                  <li>Careers </li>
+                  <li>Zerodha Cares (CSR) </li>
+                  <li>Zerodha.tech </li>
+                  <li>Open source </li>
+                  <li> </li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="ms-4 fs-4">Quick links</h2>
+                <ul style={{ listStyle: "none" }}>
+                  <li>Upcoming IPOs</li>
+                  <li>Brokerage charges</li>
+                  <li>Market holidays </li>
+                  <li>Economic calendar </li>
+                  <li>Calculators </li>
+                  <li>Markets </li>
+                  <li>Sectors </li>
+                  <li> </li>
+                </ul>
+              </div>
             </div>
           </div>
 
           <div className="row">
-            <p className="text-muted" style={{ fontSize: "11px", lineHeight:"1.8" }}>
+            <p
+              className="text-muted"
+              style={{ fontSize: "11px", lineHeight: "1.8" }}
+            >
               Zerodha Broking Ltd.: Member of NSE, BSE​ &​ MCX – SEBI
               Registration no.: INZ000031633 CDSL/NSDL: Depository services
               through Zerodha Broking Ltd. – SEBI Registration no.:
@@ -105,7 +113,10 @@ function Footer() {
           </div>
 
           <div className="row">
-            <p className="text-muted" style={{ fontSize: "11px",  lineHeight:"1.8" }}>
+            <p
+              className="text-muted"
+              style={{ fontSize: "11px", lineHeight: "1.8" }}
+            >
               {" "}
               Procedure to file a complaint on SEBI SCORES: Register on SCORES
               portal. Mandatory details for filing complaints on SCORES: Name,
@@ -115,13 +126,20 @@ function Footer() {
           </div>
 
           <div className="row">
-            <a href="/" className="text-muted" style={{ fontSize: "11px" ,  lineHeight:"1.8"}}>
+            <a
+              href="/"
+              className="text-muted"
+              style={{ fontSize: "11px", lineHeight: "1.8" }}
+            >
               Smart Online Dispute Resolution | Grievances Redressal Mechanism
             </a>
           </div>
 
           <div className="row">
-            <p className="text-muted" style={{ fontSize: "11px" ,  lineHeight:"1.8"}}>
+            <p
+              className="text-muted"
+              style={{ fontSize: "11px", lineHeight: "1.8" }}
+            >
               {" "}
               Investments in securities market are subject to market risks; read
               all the related documents carefully before investing.
@@ -129,7 +147,10 @@ function Footer() {
           </div>
 
           <div className="row">
-            <p className="text-muted" style={{ fontSize: "11px",  lineHeight:"1.8" }}>
+            <p
+              className="text-muted"
+              style={{ fontSize: "11px", lineHeight: "1.8" }}
+            >
               {" "}
               Attention investors: 1) Stock brokers can accept securities as
               margins from clients only by way of pledge in the depository
@@ -141,7 +162,10 @@ function Footer() {
             </p>
           </div>
           <div className="row">
-            <p className="text-muted" style={{ fontSize: "11px",  lineHeight:"1.8" }}>
+            <p
+              className="text-muted"
+              style={{ fontSize: "11px", lineHeight: "1.8" }}
+            >
               {" "}
               "Prevent unauthorised transactions in your account. Update your
               mobile numbers/email IDs with your stock brokers. Receive
@@ -162,9 +186,7 @@ function Footer() {
             </p>
           </div>
 
-          <div className="row">
-             
-          </div>
+          <div className="row"></div>
         </div>
       </div>
     </>
