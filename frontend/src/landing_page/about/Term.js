@@ -6,16 +6,16 @@ function Term() {
 
         <div className="row mb-5">
           <h3 className="text-center mb-5">People</h3>
-          <div className="col">
+          <div className="col text-center">
             <img
               src="/media/images/nithinKamath.jpg"
               alt="owner"
               style={{ borderRadius: "50%", width: "70%" }}
             />
-            <p>Nithin Kamath</p>
-            <span>Founder, CEO</span>
+            <p>Nithin Kamath<br/>
+            Founder, CEO</p>
           </div>
-          <div className="col">
+          <div className="col text-center">
             <p>
               Nithin bootstrapped and founded Zerodha in 2010 to overcome the
               hurdles he faced during his decade long stint as a trader. Today,
@@ -34,7 +34,7 @@ function Term() {
         </div>
 
         <div className="row mb-5">
-          <div className="col">
+          <div className="col text-center">
             <img
               src="/media/images/nithinKamath.jpg"
               alt="owner"
@@ -45,7 +45,7 @@ function Term() {
               Co-founder & CFO
             </p>
           </div>
-          <div className="col">
+          <div className="col text-center">
             <img
               src="/media/images/nithinKamath.jpg"
               alt="owner"
@@ -55,7 +55,7 @@ function Term() {
               Dr. Kailash Nadh <br /> CTO
             </p>
           </div>
-          <div className="col">
+          <div className="col text-center">
             <img
               src="/media/images/nithinKamath.jpg"
               alt="owner"
@@ -69,7 +69,7 @@ function Term() {
         </div>
 
         <div className="row mb-5">
-          <div className="col">
+          <div className="col text-center">
             <img
               src="/media/images/nithinKamath.jpg"
               alt="owner"
@@ -78,7 +78,7 @@ function Term() {
             <p>Hanan Delvi <br/>
             CCO</p>
           </div>
-          <div className="col">
+          <div className="col text-center">
             <img
               src="/media/images/nithinKamath.jpg"
               alt="owner"
@@ -87,7 +87,7 @@ function Term() {
             <p>Seema Patil <br/>
             Director</p>
           </div>
-          <div className="col">
+          <div className="col text-center">
             <img
               src="/media/images/nithinKamath.jpg"
               alt="owner"
@@ -99,7 +99,7 @@ function Term() {
         </div>
 
         <div className="row mb-5">
-          <div className="col">
+          <div className="col text-center">
             <img
               src="/media/images/nithinKamath.jpg"
               alt="owner"
