@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
 import NotFound from "./landing_page/NotFound";
+import Signup from "./landing_page/signup/Signup";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/support" element={<SupportPage />} />
+          <Route path="/signup" element={<Signup/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
         <Footer />
