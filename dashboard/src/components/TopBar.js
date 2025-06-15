@@ -3,8 +3,8 @@ import Menu from "./Menu";
 function TopBar() {
   return (
     <>
-      <div className="topbar-container d-flex mt-1">
-        <div className="indices-container d-flex col-3 border p-2 ">
+      <div className="topbar-container d-flex">
+        <div className="indices-container">
           <div className="nifty d-flex">
             <p className="index">NIFTY 50</p>
             <p className="index-points">{100.2} </p>
@@ -17,9 +17,9 @@ function TopBar() {
           </div>
         </div>
 
-      <div className="col-9 border p-2"> 
+  
       <Menu/>
-      </div>
+
       </div>
     </>
   );

@@ -2,10 +2,10 @@ import React from 'react';
 function Menu() {
     return (
         <>
-        <div className='menu-container d-flex bg-light'>
-            <img src='/logo.png' alt='logo' style={{width:"20px", height:"20px"}} />
+        <div className='menu-container d-flex'>
+            <img src='/logo.png' alt='logo' style={{width:"40px", height:"40px"}} />
             <div className='menus'>
-                <ul className='d-flex justify-content-between' style={{listStyle:"none"}}>
+                <ul className='d-flex' style={{listStyle:"none"}}>
                     <li>Dashboard </li>
                     <li> Orders</li>
                     <li>Holdings </li>
