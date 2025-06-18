@@ -27,33 +27,59 @@ function Menu() {
         <div className="menus">
           <ul className="d-flex" style={{ listStyle: "none" }}>
             <li>
-              <Link to="/" onClick={() => hanldeMenuClick(0)}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/"
+                onClick={() => hanldeMenuClick(0)}
+              >
                 Dashboard
               </Link>
             </li>
             <li>
-              <Link to="/orders" onClick={() => hanldeMenuClick(1)}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/orders"
+                onClick={() => hanldeMenuClick(1)}
+              >
                 Orders
               </Link>
             </li>
             <li>
-              <Link to="/holdings" onClick={() => hanldeMenuClick(2)}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/holdings"
+                onClick={() => hanldeMenuClick(2)}
+              >
                 Holdings
               </Link>{" "}
             </li>
-            <li> 
-                <Link to="/positions" onClick={() => hanldeMenuClick(3)}>
+            <li>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/positions"
+                onClick={() => hanldeMenuClick(3)}
+              >
                 Positions
-                </Link>
+              </Link>
             </li>
             <li>
-                <Link to="/funds" onClick={() => hanldeMenuClick(4)}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/funds"
+                onClick={() => hanldeMenuClick(4)}
+              >
                 Funds
-                </Link> </li>
+              </Link>{" "}
+            </li>
             <li>
-                <Link to="/apps" onClick={() => hanldeMenuClick(5)}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/apps"
+                onClick={() => hanldeMenuClick(5)}
+              >
                 Apps
-                </Link> </li>
+              </Link>{" "}
+            </li>
           </ul>
         </div>
       </div>
