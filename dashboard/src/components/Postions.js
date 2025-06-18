@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
 function Postions() {
-    return ( <>
-    </> );
+  return (
+    <>
+      <div className="container">
+        Positions
+        </div>
+    </>
+  );
 }
 
 export default Postions;
