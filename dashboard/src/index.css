@@ -56,3 +56,16 @@ padding: 10px 20px;
   font-weight: 400;
   color: rgb(70, 70, 70);
 }
+
+.menu {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgb(70, 70, 70);
+}
+
+.menu.selected {
+  color: rgb(245, 104, 52);
+}
+.menu:hover {
+  color: rgb(245, 104, 52);
+}

@@ -14,7 +14,7 @@ function Menu() {
   };
 
   const menuClass = "menu";
-  const activemenuClass = "menu selected";
+  const activeMenuClass = "menu selected";
 
   return (
     <>
@@ -32,7 +32,9 @@ function Menu() {
                 to="/"
                 onClick={() => hanldeMenuClick(0)}
               >
-                Dashboard
+                <p className={isMenuOpen === 0 ? activeMenuClass : menuClass}>
+                  Dashboard
+                </p>
               </Link>
             </li>
             <li>
@@ -41,7 +43,9 @@ function Menu() {
                 to="/orders"
                 onClick={() => hanldeMenuClick(1)}
               >
-                Orders
+                <p className={isMenuOpen === 1 ? activeMenuClass : menuClass}>
+                  Orders
+                </p>
               </Link>
             </li>
             <li>
@@ -50,7 +54,7 @@ function Menu() {
                 to="/holdings"
                 onClick={() => hanldeMenuClick(2)}
               >
-                Holdings
+               <p className={ isMenuOpen === 2 ? activeMenuClass: menuClass}> Holdings</p>
               </Link>{" "}
             </li>
             <li>
@@ -59,7 +63,7 @@ function Menu() {
                 to="/positions"
                 onClick={() => hanldeMenuClick(3)}
               >
-                Positions
+              <p className={ isMenuOpen === 3 ? activeMenuClass:menuClass}>  Positions</p>
               </Link>
             </li>
             <li>
@@ -68,7 +72,7 @@ function Menu() {
                 to="/funds"
                 onClick={() => hanldeMenuClick(4)}
               >
-                Funds
+                <p className={isMenuOpen === 4 ? activeMenuClass:menuClass}>Funds</p>
               </Link>{" "}
             </li>
             <li>
@@ -77,7 +81,7 @@ function Menu() {
                 to="/apps"
                 onClick={() => hanldeMenuClick(5)}
               >
-                Apps
+            <p className={isMenuOpen === 5 ? activeMenuClass : menuClass}>    Apps</p>
               </Link>{" "}
             </li>
           </ul>

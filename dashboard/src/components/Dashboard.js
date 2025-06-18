@@ -11,7 +11,7 @@ import { Route, Routes } from "react-router-dom";
 function Dashboard() {
   return (
     <>
-      {/* <div className="dashboard-container">
+      <div className="dashboard-container">
         <WatchList />
         <div className="content">
             <Routes>
@@ -23,7 +23,7 @@ function Dashboard() {
                 <Route  path="/apps" element={<App/>} />
             </Routes>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
