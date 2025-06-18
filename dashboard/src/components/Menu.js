@@ -1,5 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 function Menu() {
+    const [isMenuOpen, setIsMenuOpen] = useState(0);
+    const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+    const hanldeMenuClick = (index) =>{
+     setIsMenuOpen(index);
+    }
+
+    const handleProfileClick = () => {
+        setIsProfileDropdownOpen(!isProfileDropdownOpen)
+    }
+    
     return (
         <>
         <div className='menu-container d-flex'>
