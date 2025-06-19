@@ -29,6 +29,7 @@ padding: 10px 20px;
 
 
 .menu-container {
+  width: 100%;
   flex-basis: 68%;
   height: 100%;
   padding: 10px 20px;

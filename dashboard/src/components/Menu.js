@@ -54,7 +54,10 @@ function Menu() {
                 to="/holdings"
                 onClick={() => hanldeMenuClick(2)}
               >
-               <p className={ isMenuOpen === 2 ? activeMenuClass: menuClass}> Holdings</p>
+                <p className={isMenuOpen === 2 ? activeMenuClass : menuClass}>
+                  {" "}
+                  Holdings
+                </p>
               </Link>{" "}
             </li>
             <li>
@@ -63,7 +66,10 @@ function Menu() {
                 to="/positions"
                 onClick={() => hanldeMenuClick(3)}
               >
-              <p className={ isMenuOpen === 3 ? activeMenuClass:menuClass}>  Positions</p>
+                <p className={isMenuOpen === 3 ? activeMenuClass : menuClass}>
+                  {" "}
+                  Positions
+                </p>
               </Link>
             </li>
             <li>
@@ -72,7 +78,9 @@ function Menu() {
                 to="/funds"
                 onClick={() => hanldeMenuClick(4)}
               >
-                <p className={isMenuOpen === 4 ? activeMenuClass:menuClass}>Funds</p>
+                <p className={isMenuOpen === 4 ? activeMenuClass : menuClass}>
+                  Funds
+                </p>
               </Link>{" "}
             </li>
             <li>
@@ -81,10 +89,18 @@ function Menu() {
                 to="/apps"
                 onClick={() => hanldeMenuClick(5)}
               >
-            <p className={isMenuOpen === 5 ? activeMenuClass : menuClass}>    Apps</p>
+                <p className={isMenuOpen === 5 ? activeMenuClass : menuClass}>
+                  {" "}
+                  Apps
+                </p>
               </Link>{" "}
             </li>
           </ul>
+          <hr />
+        <div className="profile" onClick={handleProfileClick}>
+          <div className="avatar">ZU</div>
+          <p className="username">USERID</p>
+        </div>
         </div>
       </div>
     </>
