@@ -1,4 +1,6 @@
 import React from "react";
+import { holdings } from "../data/data.js";
+
 function Holdings() {
   return (
     <>
