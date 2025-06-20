@@ -5,7 +5,7 @@ function Holdings() {
   return (
     <>
       <div>
-        <h3 className="title"> Holdings {allHoldings.length}</h3>
+        <h3 className="title"> Holdings {holdings.length}</h3>
         <div>
           <table>
             <tr>
@@ -19,7 +19,7 @@ function Holdings() {
               <th>Day chg.</th>
             </tr>
 
-            {allHoldings.map((stock,index) => {
+            {holdings.map((stock,index) => {
               const currValue = stock.price * stock.qty;
               const isProfit = currValue - (stock.avg * stock.qty) >= 0.0;
               const profitClass = isProfit ? "Profit" : "Loss" ;
@@ -42,6 +42,7 @@ function Holdings() {
 
           </table>
         </div>
+      
       </div>
     </>
   );
