@@ -20,11 +20,26 @@ function Holdings() {
             </tr>
 
             {allHoldings.map((stock,index) => {
-              const costPrice = stock.price * stock.qty;
+              const currValue = stock.price * stock.qty;
+              const isProfit = currValue - (stock.avg * stock.qty) >= 0.0;
+              const profitClass = isProfit ? "Profit" : "Loss" ;
+              const dayClass = stock.isLoss ? "Loss" : "Profit";
 
-
+              <tr key={index}>
+                <td>{stock.name}</td>
+                <td>{stock.qty}</td>
+                <td>{stock.avg.toFixed(2)}</td>
+                <td>{stock.price.toFixed(2)}</td>
+                <td>{currValue.toFixed(2)}</td>
+                <td className={profitClass}>
+                  {(currValue - stock.avg * stock.qty).toFixed(2)}
+                </td>
+                <td className={profitClass}>{stock.net}</td>
+                <td className={dayClass}>{stock.day}</td>
+              </tr>
               })
             }
+
           </table>
         </div>
       </div>
