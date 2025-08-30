@@ -4,9 +4,9 @@ import { holdings } from "../data/data.js";
 function Holdings() {
   return (
     <>
-      <div>
+
         <h3 className="title"> Holdings {holdings.length}</h3>
-        <div>
+        <div className="order-table">
           <table>
             <tr>
               <th>Instrument</th>
@@ -25,7 +25,8 @@ function Holdings() {
               const profitClass = isProfit ? "Profit" : "Loss" ;
               const dayClass = stock.isLoss ? "Loss" : "Profit";
 
-              <tr key={index}>
+             return(
+               <tr key={index}>
                 <td>{stock.name}</td>
                 <td>{stock.qty}</td>
                 <td>{stock.avg.toFixed(2)}</td>
@@ -37,13 +38,14 @@ function Holdings() {
                 <td className={profitClass}>{stock.net}</td>
                 <td className={dayClass}>{stock.day}</td>
               </tr>
+             )
               })
             }
 
           </table>
         </div>
       
-      </div>
+
     </>
   );
 }
