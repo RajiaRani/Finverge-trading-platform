@@ -35,12 +35,10 @@ padding: 10px 20px;
   padding: 10px 20px;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 .menus {
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
 }
 .menus ul {
@@ -69,4 +67,14 @@ padding: 10px 20px;
 }
 .menu:hover {
   color: rgb(245, 104, 52);
+}
+
+
+
+.avatar{
+  background-color: rgb(249, 186, 186);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  text-align: center;
 }

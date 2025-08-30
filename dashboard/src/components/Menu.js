@@ -19,11 +19,7 @@ function Menu() {
   return (
     <>
       <div className="menu-container d-flex">
-        <img
-          src="/logo.png"
-          alt="logo"
-          style={{ width: "40px", height: "40px" }}
-        />
+        <img src="/logo.png" alt="logo" style={{ width: "30px", height:"30px" }} />
         <div className="menus">
           <ul className="d-flex" style={{ listStyle: "none" }}>
             <li>
@@ -97,10 +93,11 @@ function Menu() {
             </li>
           </ul>
           <hr />
-          <div className="profile" onClick={handleProfileClick}>
+          <div className="profile d-flex" onClick={handleProfileClick}>
             <div className="avatar">ZU</div>
             <p className="username">USERID</p>
           </div>
+          {/* {isProfileDropdownOpen} */}
         </div>
       </div>
     </>
