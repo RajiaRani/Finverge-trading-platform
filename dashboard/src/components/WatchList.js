@@ -59,6 +59,9 @@ const WatchListItem = ({ stock }) => {
           <span className="price">{stock.price}</span>
         </div>
       </div>
+
+      {/* Call the Tooltip */}
+      { showWatchListActions &&  <WatchListActions uid={stock.name} /> }
     </li>
   );
 };
@@ -68,7 +71,7 @@ const WatchListActions = ({uid}) => {
       <span className="actions">
        <span>
         <Tooltip
-        title="Buy B"
+        title="Buy (B)"
         placement="top"
         arrow
         TransitionComponent={Grow}
