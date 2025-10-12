@@ -61,6 +61,7 @@ const WatchListItem = ({ stock }) => {
           ) : (
             <KeyboardArrowUp className="down" /> // material ui icons
           )}
+
           <span className="price">{stock.price}</span>
         </div>
       </div>
@@ -71,6 +72,9 @@ const WatchListItem = ({ stock }) => {
   );
 };
 
+
+
+//watchlist actions
 const WatchListActions = ({ uid }) => {
   return (
     <span className="actions">
