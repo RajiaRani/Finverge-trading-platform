@@ -21,8 +21,8 @@ function Holdings() {
           {holdings.map((stock, index) => {
             const currValue = stock.price * stock.qty;
             const isProfit = currValue - stock.avg * stock.qty >= 0.0;
-            const profitClass = isProfit ? "Profit" : "Loss";
-            const dayClass = stock.isLoss ? "Loss" : "Profit";
+            const profitClass = isProfit ? "profit" : "loss";
+            const dayClass = stock.isLoss ? "loss" : "profit";
 
             return (
               <tr key={index}>

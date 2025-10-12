@@ -1,5 +1,6 @@
 import React from "react";
 import { positions } from "../data/data.js";
+import "../index.css"
 const  Positions = () => {
   return (
     <>
@@ -18,8 +19,8 @@ const  Positions = () => {
           {positions.map((stock, index) => {
             const currValue = stock.price * stock.qty;
             const isProfit = currValue - stock.avg * stock.qty >= 0.0;
-            const profClass = isProfit ? "Profit" : "Loss";
-            const dayClass = stock.isLoss ? "Loss" : "Profit";
+            const profClass = isProfit ? "profit" : "loss";
+            const dayClass = stock.isLoss ? "loss" : "profit";
 
             return (
               <tr key={index}>
