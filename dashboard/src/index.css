@@ -368,6 +368,7 @@ position: relative;
 
 
 /*========= WatchList.js File End ===========*/
+
 .item:hover {
   cursor: pointer;
 }

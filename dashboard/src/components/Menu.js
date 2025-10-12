@@ -20,6 +20,7 @@ function Menu() {
     <>
       <div className="menu-container d-flex">
         <img src="/logo.png" alt="logo" style={{ width: "30px", height:"30px" }} />
+        
         <div className="menus">
           <ul className="d-flex" style={{ listStyle: "none" }}>
             <li>
