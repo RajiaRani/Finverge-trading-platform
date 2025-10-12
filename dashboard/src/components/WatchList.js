@@ -39,10 +39,12 @@ const WatchListItem = ({ stock }) => {
   const [showWatchListActions, setShowWatchListActions] = useState(false);
 
   // Event handler
+  // Mouse enter kiya
   const handleMouseEnter = (event) => {
     setShowWatchListActions(true);
   };
 
+  // Mouse Exit kiye
   const handleMouseLeave = (event) => {
     setShowWatchListActions(false);
   };
@@ -55,9 +57,9 @@ const WatchListItem = ({ stock }) => {
         <div className="itemInfo">
           <span className="percent">{stock.percent}</span>
           {stock.isDown ? (
-            <KeyboardArrowDown className="down" />
+            <KeyboardArrowDown className="down" /> // material ui icons
           ) : (
-            <KeyboardArrowUp className="down" />
+            <KeyboardArrowUp className="down" /> // material ui icons
           )}
           <span className="price">{stock.price}</span>
         </div>
@@ -104,11 +106,7 @@ const WatchListActions = ({ uid }) => {
           </button>
         </Tooltip>
 
-        <Tooltip 
-          title="More" 
-          placement="top" 
-          arrow TransitionComponent={Grow}
-        >
+        <Tooltip title="More" placement="top" arrow TransitionComponent={Grow}>
           <button className="action">
             <MoreHoriz className="icon" />
           </button>
