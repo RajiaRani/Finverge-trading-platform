@@ -4,7 +4,7 @@ const OrderSchema = new Schema({
   name: String,
   qty: Number,
   price: Number,
-  mode: String,
+  mode: String, // buy or sell
 });
 
 module.exports = { OrderSchema };
