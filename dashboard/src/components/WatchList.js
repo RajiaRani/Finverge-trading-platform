@@ -82,12 +82,13 @@ const WatchListActions = ({ uid }) => {
         {/* ==== For Buy Button ===*/}
         <Tooltip
           title="Buy (B)"
-          placement="top"
+          placement="top" // where do you want to place up/down
           arrow
           TransitionComponent={Grow}
         >
-          <button className="buy">Buy</button>
+        <button className="buy">Buy</button>
         </Tooltip>
+
         {/* ==== For Sell Button ===*/}
         <Tooltip
           title="Sell (S)"
