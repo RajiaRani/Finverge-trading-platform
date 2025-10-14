@@ -8,12 +8,15 @@ import Holdings from "./Holdings.js";
 import App from "./App.js";
 
 import { Route, Routes } from "react-router-dom";
+import  { GeneralContextProvider } from "./GeneralContext.js";
 function Dashboard() {
   return (
     <>
       <div className="dashboard-container">
-  
-          <WatchList />
+         <GeneralContextProvider>
+           <WatchList />
+         </GeneralContextProvider>
+         
  
         <div className="content">
           <Routes>

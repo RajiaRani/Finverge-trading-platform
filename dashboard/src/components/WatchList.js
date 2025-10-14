@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Tooltip, Grow } from "@mui/material";
 import { watchlist } from "../data/data.js";
+import GeneralContext from "./GeneralContext";
 
 import {
   BarChartOutlined,
@@ -72,10 +73,14 @@ const WatchListItem = ({ stock }) => {
   );
 };
 
-
-
 //watchlist actions
 const WatchListActions = ({ uid }) => {
+  const generalContext = useContext(GeneralContext);
+
+  const handleBuyClick = () => {
+    generalContext.openBuyWindow(uid);
+  };
+
   return (
     <span className="actions">
       <span>
@@ -85,8 +90,9 @@ const WatchListActions = ({ uid }) => {
           placement="top" // where do you want to place up/down
           arrow
           TransitionComponent={Grow}
+          onClick={handleBuyClick}
         >
-        <button className="buy">Buy</button>
+          <button className="buy">Buy</button>
         </Tooltip>
 
         {/* ==== For Sell Button ===*/}
