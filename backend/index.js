@@ -4,6 +4,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 
 const { HoldingsModel } = require("./models/HoldingsModel.js");
 const {PositionModel} = require("./models/PostionModel.js");
@@ -16,6 +18,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(cookieParser());
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
