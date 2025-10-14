@@ -1,26 +1,22 @@
 import React from "react";
-import WatchList from "./WatchList.js";
-import Summary from "./Summary.js";
-import Orders from "./Orders.js";
-import Positions from "./Positions.js";
-import Funds from "./Funds.js";
-import Holdings from "./Holdings.js";
-import App from "./App.js";
-
+import WatchList from "./WatchList";
+import Summary from "./Summary";
+import Orders from "./Orders";
+import Positions from "./Positions";
+import Funds from "./Funds";
+import Holdings from "./Holdings";
+import App from "./App";
 import { Route, Routes } from "react-router-dom";
-import  { GeneralContextProvider } from "./GeneralContext.js";
+import { GeneralContextProvider } from "./GeneralContext";
+
 function Dashboard() {
   return (
-    <>
-      <div className="dashboard-container">
-         <GeneralContextProvider>
-           <WatchList />
-         </GeneralContextProvider>
-         
- 
+    <div className="dashboard-container">
+      <GeneralContextProvider>
+        <WatchList />
         <div className="content">
           <Routes>
-            <Route exact path="/" element={<Summary />} />
+            <Route path="/" element={<Summary />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/holdings" element={<Holdings />} />
             <Route path="/positions" element={<Positions />} />
@@ -28,8 +24,8 @@ function Dashboard() {
             <Route path="/apps" element={<App />} />
           </Routes>
         </div>
-      </div>
-    </>
+      </GeneralContextProvider>
+    </div>
   );
 }
 
