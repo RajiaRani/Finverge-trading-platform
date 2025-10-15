@@ -20,24 +20,16 @@ Monorepo layout: frontend/ (marketing + signup/login), dashboard/ (protected app
 
 ☁️ Cloud-ready configs; CORS for local multi-app dev
 
-<b>🏗️ Architecture</b>
-Finverge/
-├─ backend/            # Express + Mongoose API (port 3002)
-│  ├─ models/          # HoldingsModel, PositionModel, OrderModel, UserModel
-│  ├─ index.js         # /signup, /login, /verify, /logout, /allHoldings, /allPositions, /newOrder
-│  └─ .env             # MONGO_URL, JWT_SECRET, PORT
-├─ frontend/           # Marketing + auth pages (port 3000)
-│  └─ src/pages/       # Signup.jsx, Login.jsx (redirects to 3001 on s🧪 Tech Stack
 
-Frontend: React, Axios, React Router, React-Toastify
+<b>Frontend:</b> React, Axios, React Router, React-Toastify
 
-Dashboard: React + route guard (RequireAuth), react-chartjs-2 + chart.js
+<b>Dashboard:</b> React + route guard (RequireAuth), react-chartjs-2 + chart.js
 
-Backend: Node.js, Express, Mongoose, JWT, cookie-parser, CORS
+<b>Backend:</b> Node.js, Express, Mongoose, JWT, cookie-parser, CORS
 
-DB: MongoDB Atlas
+<b>DB:</b> MongoDB Atlas
 
-Auth pattern: JWT in httpOnly cookie (sameSite=lax) following the fCC MERN guide
+<b>Auth pattern:</b> JWT in httpOnly cookie (sameSite=lax) following the fCC MERN guide
 
 <b>🔐 Auth Flow (high-level)</b>
 
@@ -52,14 +44,6 @@ Dashboard guard (RequireAuth) calls POST /verify with credentials.
 Valid → render dashboard
 
 Invalid → redirect to login
-
-CORS on backend allows http://localhost:3000 and http://localhost:3001, and all axios calls use { withCredentials: true }.uccess)
-├─ dashboard/          # Protected app (port 3001)
-│  ├─ src/routes/      # RequireAuth.js (calls /verify with credentials)
-│  ├─ src/components/  # WatchList, Summary, Orders, Positions, Funds, Holdings
-│  └─ src/lib/         # api.js (axios instance withCredentials)
-└─ .gitignore          # ignores .env & build artifacts
-
 
 
 <b>Extra links</b>
