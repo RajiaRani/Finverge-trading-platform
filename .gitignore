@@ -1,0 +1,21 @@
+# node + logs
+node_modules/
+*.log
+
+# envs (for all apps)
+.env
+.env.*
+!.env.example
+frontend/.env*
+backend/.env*
+dashboard/.env*
+
+# builds
+frontend/build/
+dashboard/build/
+**/dist/
+**/coverage/
+
+# OS/editor
+.DS_Store
+.vscode/
