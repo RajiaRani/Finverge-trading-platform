@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Signup() {
-  const navigate = useNavigate();
+const BACKEND_URL = "http://localhost:3002";
+const DASHBOARD_URL = "http://localhost:3000/"; // change if your dashboard uses a different port
 
+function Signup() {
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
@@ -20,31 +21,29 @@ function Signup() {
     setInputValue((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleError = (err) =>
-    toast.error(err, { position: "bottom-left" });
+  const handleError = (err) => toast.error(err, { position: "bottom-left" });
+  const handleSuccess = (msg) => toast.success(msg, { position: "bottom-right" });
 
-  const handleSuccess = (msg) =>
-    toast.success(msg, { position: "bottom-right" });
-
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/signup",
+        `${BACKEND_URL}/signup`,
         inputValue,
         { withCredentials: true }
       );
       const { success, message } = data || {};
       if (success) {
         handleSuccess(message || "Signed up!");
-        setTimeout(() => navigate("/"), 1000);
+        setTimeout(() => {
+          // ✅ go to dashboard after signup
+          window.location.href = DASHBOARD_URL;
+        }, 800);
       } else {
         handleError(message || "Signup failed");
       }
     } catch (error) {
-      handleError(
-        error?.response?.data?.message || error.message || "Something went wrong"
-      );
+      handleError(error?.response?.data?.message || error.message || "Something went wrong");
       console.error(error);
     }
 

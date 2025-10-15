@@ -1,43 +1,45 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Login = () => {
-  const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState({ email: "", password: "" });
+const BACKEND_URL = "http://localhost:3002";
+const DASHBOARD_URL = "http://localhost:3000/"; // change if your dashboard uses a different port
 
-  const { email, password } = inputValue;
+const Login = () => {
+  // allow either email or username
+  const [inputValue, setInputValue] = useState({ emailOrUsername: "", password: "" });
+  const { emailOrUsername, password } = inputValue;
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleError = (err) =>
-    toast.error(err, { position: "bottom-left" });
-
-  const handleSuccess = (msg) =>
-    toast.success(msg, { position: "bottom-left" });
+  const handleError = (err) => toast.error(err, { position: "bottom-left" });
+  const handleSuccess = (msg) => toast.success(msg, { position: "bottom-left" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/login",
+        `${BACKEND_URL}/login`,
         inputValue,
-        { withCredentials: true }
+        { withCredentials: true } // important for cookie
       );
       const { success, message } = data || {};
       if (success) {
         handleSuccess(message || "Logged in!");
-        setTimeout(() => navigate("/"), 800);
+        setTimeout(() => {
+          // ✅ go to dashboard after login
+          window.location.href = DASHBOARD_URL;
+        }, 800);
       } else {
         handleError(message || "Invalid credentials");
       }
     } catch (error) {
-      handleError(error?.response?.data?.message || error.message);
+      handleError(error?.response?.data?.message || error.message || "Login error");
       console.error(error);
     }
     setInputValue({ email: "", password: "" });
@@ -49,10 +51,7 @@ const Login = () => {
         <div className="container mb-5">
           <div className="row p-5 mt-5 text-center text-muted">
             <h3>Open a free demat &amp; trading account online</h3>
-            <p>
-              Start investing brokerage free and join a community of 1.5+ crore
-              investors and traders
-            </p>
+            <p>Start investing brokerage free and join a community of 1.5+ crore investors and traders</p>
           </div>
 
           <div className="row m-auto p-5" style={{ width: "100%" }}>
@@ -66,16 +65,16 @@ const Login = () => {
               <h2>Login Account</h2>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="emailOrUsername">Email or Username</label>
                   <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={email}
-                    placeholder="Enter your email"
+                    id="emailOrUsername"
+                    type="text"
+                    name="emailOrUsername"
+                    value={emailOrUsername}
+                    placeholder="Enter your email or username"
                     onChange={handleOnChange}
                     className="form-control"
-                    autoComplete="email"
+                    autoComplete="username"
                     required
                   />
                 </div>

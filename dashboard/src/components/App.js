@@ -1,33 +1,23 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import RequireAuth from "../Rou/RequireAuth";
-// import Dashboard from "./Dashboard";
-// import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
+// dashboard/src/components/App.js
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RequireAuth from "../routes/RequireAuth"; // ✅ lives in src/routes/RequireAuth.js
+import Dashboard from "./Dashboard";             // ✅ lives in the SAME folder as App.js
 
-// export default function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         {/* Protect the entire dashboard subtree */}
-//         <Route
-//           path="/*"
-//           element={
-//             <RequireAuth>
-//               <Dashboard />
-//             </RequireAuth>
-//           }
-//         />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/signup" element={<Signup />} />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/*"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
-import React from "react";
 
-const Apps = () => {
-  return <h1>Apps</h1>;
-};
-
-export default Apps;

@@ -6,19 +6,132 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const bcrypt = require("bcryptjs");
+
 
 const { HoldingsModel } = require("./models/HoldingsModel.js");
 const {PositionModel} = require("./models/PostionModel.js");
 const {OrderModel} = require("./models/OrderModel.js");
+const {UserModel} = require("./models/UserModel.js");
+const { ProfileModel } = require("./models/ProfileModel.js");
 
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const app = express();
-app.use(cors());
 app.use(bodyParser.json());
+
+// ---------- Middleware ----------
 app.use(express.json());
 app.use(cookieParser());
+
+
+// SINGLE CORS middleware (no duplicate app.use(cors()))
+const ALLOWED_ORIGINS = [
+  "http://localhost:3000", // frontend (login/signup)
+  "http://localhost:3001", // dashboard
+  "http://localhost:3002",
+  // add more origins if needed
+];
+
+
+app.use(
+  cors({
+    origin(origin, cb) {
+      // allow REST tools/no-origin and allowed origins
+      if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+      return cb(new Error("CORS: Not allowed by policy"), false);
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+
+
+// ---------- Utilities ----------
+function setAuthCookie(res, payload) {
+  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+  res.cookie('token', token, {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: false, // true in prod with HTTPS
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+  });
+}
+
+
+function verifyToken(req, res, next) {
+  const token = req.cookies?.token;
+  if (!token) return res.status(401).json({ status: false, message: 'No token' });
+  try {
+    req.user = jwt.verify(token, JWT_SECRET);
+    next();
+  } catch {
+    return res.status(401).json({ status: false, message: 'Invalid/expired token' });
+  }
+}
+
+// SIGNUP
+app.post('/signup', async (req, res) => {
+  try {
+    const { email, username, password } = req.body;
+    if (!email || !username || !password)
+      return res.status(400).json({ success:false, message:'All fields required' });
+
+    const exists = await UserModel.findOne({ $or: [{ email }, { username }] });
+    if (exists) return res.status(409).json({ success:false, message:'User already exists' });
+
+    const hash = await bcrypt.hash(password, 10);
+    const user = await UserModel.create({ email, username, password: hash });
+
+    // auto-create empty profile
+    await ProfileModel.create({ user: user._id });
+
+    setAuthCookie(res, { id: user._id, username: user.username });
+    res.json({ success: true, message: 'Signed up', user: { username: user.username } });
+  } catch (e) {
+    res.status(500).json({ success:false, message: e.message });
+  }
+});
+
+// LOGIN (email or username)
+app.post('/login', async (req, res) => {
+  try {
+    const emailOrUsername = req.body.emailOrUsername || req.body.email;
+    const { password } = req.body;
+    if (!emailOrUsername || !password)
+      return res.status(400).json({ success:false, message:'All fields required' });
+
+    const user = await UserModel.findOne({
+      $or: [{ email: emailOrUsername }, { username: emailOrUsername }]
+    });
+    if (!user) return res.status(401).json({ success:false, message:'Invalid credentials' });
+
+    const ok = await bcrypt.compare(password, user.password);
+    if (!ok) return res.status(401).json({ success:false, message:'Invalid credentials' });
+
+    setAuthCookie(res, { id: user._id, username: user.username });
+    res.json({ success: true, message: 'Logged in', user: { username: user.username } });
+  } catch (e) {
+    res.status(500).json({ success:false, message: e.message });
+  }
+});
+
+// VERIFY (used by dashboard guard)
+app.post('/verify', verifyToken, (req, res) => {
+  res.json({ status: true, user: req.user.username });
+});
+
+
+// LOGOUT
+app.post('/logout', (_req, res) => {
+  res.clearCookie('token', { httpOnly: true, sameSite: 'lax', secure: false });
+  res.json({ success: true });
+});
+
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
